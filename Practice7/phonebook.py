@@ -4,12 +4,10 @@
 
 import csv
 import psycopg2
-from Practice.Practice7.connect import get_connection
+from connect import get_connection
 
 
-# ─────────────────────────────────────────────
-#  TABLE SETUP
-# ─────────────────────────────────────────────
+
 
 def create_table():
     """Create the phonebook table if it doesn't exist."""
@@ -28,9 +26,7 @@ def create_table():
     print("[OK] Table 'phonebook' is ready.")
 
 
-# ─────────────────────────────────────────────
-#  INSERT
-# ─────────────────────────────────────────────
+
 
 def insert_contact(first_name: str, last_name: str, phone: str):
     """Insert a single contact. Skips duplicates (by phone)."""
@@ -80,9 +76,7 @@ def insert_from_console():
     insert_contact(first_name, last_name, phone)
 
 
-# ─────────────────────────────────────────────
-#  SELECT / SEARCH
-# ─────────────────────────────────────────────
+
 
 def _print_rows(rows):
     if not rows:
@@ -131,9 +125,7 @@ def search_by_phone_prefix(prefix: str):
             _print_rows(cur.fetchall())
 
 
-# ─────────────────────────────────────────────
-#  UPDATE
-# ─────────────────────────────────────────────
+
 
 def update_phone(old_phone: str, new_phone: str):
     """Change a contact's phone number."""
@@ -183,9 +175,6 @@ def update_from_console():
         print("[ERROR] Invalid choice.")
 
 
-# ─────────────────────────────────────────────
-#  DELETE
-# ─────────────────────────────────────────────
 
 def delete_by_phone(phone: str):
     """Delete a contact by phone number."""
@@ -228,10 +217,6 @@ def delete_from_console():
     else:
         print("[ERROR] Invalid choice.")
 
-
-# ─────────────────────────────────────────────
-#  MAIN MENU
-# ─────────────────────────────────────────────
 
 MENU = """
 ╔══════════════════════════════╗

@@ -1,7 +1,7 @@
 # PostgreSQL connection details
 # Construct the DSN connection string
 
- import os
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,7 +18,7 @@ class Config:
 settings = Config()
 
 
-# Use the connection string from our config
+
 
 import psycopg2
 from config import settings
